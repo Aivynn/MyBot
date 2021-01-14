@@ -4,7 +4,7 @@ import telebot
 from telebot import types
 import requests
 from bs4 import BeautifulSoup as bs
-from config import token
+from config import token, user, host, password, database
 import mysql.connector
 import time
 import threading
@@ -16,13 +16,12 @@ val = []
 
 def conn():
     db = mysql.connector.connect(
-        host="us-cdbr-east-02.cleardb.com",
-        user="b8a73a66bb115c",
-        password="bd06d154",
-        database='heroku_ec15006e88f9ba7'
+        host=host,
+        user=user,
+        password=password,
+        database=database
     )
     return db
-
 
 bot = telebot.TeleBot(token)
 
